@@ -1,0 +1,33 @@
+
+
+
+body{
+    max-width: 620px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.main-content{
+    flex-grow: 1;
+}
+.partial-header h1{
+    font-size: 60px;
+    font-family: "Arial Black";
+}
+.partial-header a{
+    color: #7c7c7c;
+    text-decoration: none;
+    padding-right: 20px;
+}
+.about-img{
+    width: 200px;
+    margin-top: 20px;
+}
+footer p{
+    color: #7c7c7c;
+}
+hr{
+    margin: 50px auto;
+}
+
