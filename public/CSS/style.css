@@ -1,33 +1,47 @@
-
-
-
-body{
+body {
     max-width: 620px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
-.main-content{
+
+.main-content {
     flex-grow: 1;
 }
-.partial-header h1{
+
+.partial-header h1 {
     font-size: 60px;
     font-family: "Arial Black";
 }
-.partial-header a{
+
+.partial-header a {
     color: #7c7c7c;
     text-decoration: none;
     padding-right: 20px;
 }
-.about-img{
+
+.about-img {
     width: 200px;
     margin-top: 20px;
 }
-footer p{
+
+footer p {
     color: #7c7c7c;
 }
-hr{
+
+hr {
     margin: 50px auto;
 }
 
+#search-field {
+    height: 50px;
+    border: 3px red double;
+    padding-left: 10px;
+}
+
+button {
+    height: 50px;
+    width: 80px;
+    border: 3px royalblue double;
+}
