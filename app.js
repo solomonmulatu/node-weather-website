@@ -10,7 +10,7 @@ const viewpath = path.join(__dirname, "template/views");
 //custom path for the view engine partials
 const partialPath = path.join(__dirname, "template/partials");
 //import fetch
-const fetch=require("node-fetch");
+const fetch = require("node-fetch");
 //registering partials
 hbs.registerPartials(partialPath);
 
@@ -21,6 +21,7 @@ app.set('views', viewpath);
 //setup static directory to serve
 app.use(express.static(public_path));
 
+const port = process.env.PORT || 3000
 
 //index route using hbs engine
 app.get('', (req, res) => {
@@ -62,31 +63,33 @@ app.get("/weather", (req, res) => {
 
     }
     geocode(req.query.address, (error, {
-        latitude, longitude, location
-    }={}) => {
-        if (error) {
-            return res.send({
-                error
-            })
-        }
-        forecast(latitude, longitude, (error, forecastData) => {
+            latitude,
+            longitude,
+            location
+        } = {}) => {
             if (error) {
                 return res.send({
                     error
                 })
             }
-            res.send({
-                forecast: forecastData,
-                location,
-                address: req.query.address
+            forecast(latitude, longitude, (error, forecastData) => {
+                if (error) {
+                    return res.send({
+                        error
+                    })
+                }
+                res.send({
+                    forecast: forecastData,
+                    location,
+                    address: req.query.address
+                })
             })
         })
-    })
-    // return res.send({
-    //     forecast:'it is snowing',
-    //     location: 'Phildalphia',
-    //     address:req.query.address
-    // })
+        // return res.send({
+        //     forecast:'it is snowing',
+        //     location: 'Phildalphia',
+        //     address:req.query.address
+        // })
 
 });
 
@@ -120,7 +123,6 @@ app.get('*', (req, res) => {
 // });
 
 
-app.listen(3000, () => {
-    console.log("the app is running on port 3000")
+app.listen(port, () => {
+    console.log("the app is running on port" + port)
 });
-
